@@ -1782,6 +1782,9 @@ static void drop_caps(const struct minijail *j, unsigned int last_valid_cap)
 
 static void set_seccomp_filter(const struct minijail *j)
 {
+  (void)j;
+  printf("=== %s %s:%d\n", __FILE__, __FUNCTION__, __LINE__);
+#if 0
 	/*
 	 * Set no_new_privs. See </kernel/seccomp.c> and </kernel/sys.c>
 	 * in the kernel source tree for an explanation of the parameters.
@@ -1844,6 +1847,7 @@ static void set_seccomp_filter(const struct minijail *j)
 			}
 		}
 	}
+#endif
 }
 
 static pid_t forward_pid = -1;
